@@ -19,7 +19,7 @@ def main():
 
     pages = {
         'Accueil': Accueil,
-        'Contexte':laulau,
+        'Meteo':laulau,
         'Dashboard':val,
         'Heatmap': premiere_analyse,
         'Animations': best_corr,
@@ -88,6 +88,10 @@ def laulau():
 
     st.markdown(data, unsafe_allow_html=True)
 
+    st.image('meteo.png')
+
+    st.image('pluie.jpg')
+
 
 def val():
      #graphs centrés
@@ -117,7 +121,7 @@ def val():
         options=["Velo", "Trotinette","Les deux"],)
 
     with col2:    
-        species_option = st.selectbox('Choisir mode de transport',('taux utilisation','Disponibilite','CA','Km Parcourus'))
+        species_option = st.selectbox('les KPI',('taux utilisation','Disponibilite','Plage Horaire','CA','Km Parcourus'))
         if species_option == 'taux utilisation' and modes == 'Velo':
             st.image('tauxOccup.png', width=950)
         if species_option == 'taux utilisation' and modes =='Trotinette':
@@ -129,19 +133,25 @@ def val():
         if species_option == 'Disponibilite' and modes =='Trotinette':
             st.image('trot_utilise.jpg', width=950)
         if species_option == 'Disponibilite' and modes =='Les deux':
-            st.image('Nb_utilisés_jours.jpg', width=950)
+            st.image('dispo1.jpg', width=950)
+        if species_option == 'Plage Horaire' and modes == 'Velo':
+            st.image('horaireBike.png', width=950)
+        if species_option == 'Plage Horaire' and modes == 'Trotinette':
+            st.image('horaireScoot.png', width=950)
+        if species_option == 'Plage Horaire' and modes == 'Les deux':
+            st.image('horaireTotal.png', width=950)
         if species_option == 'CA' and modes == 'Velo':
             st.image('CAbike.png', width=950)
         if species_option == 'CA' and modes =='Trotinette':
             st.image('CAscootter.png', width=950)
         if species_option == 'CA' and modes =='Les deux':
-            st.image('Laurence2.jpg', width=950)   
+            st.image('catotal.png', width=950)   
         if species_option == 'Km Parcourus' and modes == 'Velo':
-            st.image('bike_km_moy.jpg', width=950)
+            st.image('bike_moy.jpg', width=950)
         if species_option == 'Km Parcourus' and modes =='Trotinette':
-            st.image('trot_km_moy.jpg', width=950)
+            st.image('km_trot.jpg', width=950)
         if species_option == 'Km Parcourus' and modes =='Les deux':
-            st.image('kilometres_moyen.jpg', width=950)   
+            st.image('moy.jpg', width=950)   
        
     # Show Plots
 
@@ -307,7 +317,7 @@ def region_results():
         options=["Velo", "Trotinette","Les deux"],)
 
     with col2:    
-        species_option = st.selectbox('Etat de la flotte',('Non Fonctionnel','Batterie Vide','Carte des pannes','babouche'))
+        species_option = st.selectbox('Etat de la flotte',('Non Fonctionnel','Carte des pannes','Batterie Vide','temps indisponible'))
         if species_option == 'Non Fonctionnel' and modes == 'Velo':
             st.image('bike-casse.jpg', width=1000)
         if species_option == 'Non Fonctionnel' and modes == 'Trotinette':
@@ -315,17 +325,24 @@ def region_results():
         if species_option == 'Non Fonctionnel' and modes == 'Les deux':
             st.image('non_fonctinnel_val2.jpg', width=1000)   
         if species_option == 'Batterie Vide' and modes == 'Les deux':
-            st.image('nb_vehicules_batteries_vides.jpg', width=1000)
+            st.image('vides.jpg', width=1000)
         if species_option == 'Batterie Vide' and modes == 'Velo':
-            st.image('bike_batterie_vide.jpg', width=1000)
+            st.image('vide_b.jpg', width=1000)
         if species_option == 'Batterie Vide' and modes == 'Trotinette':
-            st.image('trot_ batterie_vide.jpg', width=1000)
+            st.image('vide_t.jpg', width=1000)
         if species_option == 'Carte des pannes' and modes == 'Velo':
             st.image('bike_map.jpg', width=1000)
         if species_option == 'Carte des pannes' and modes == 'Trotinette':
             st.image('trot_map.jpg', width=1000)
         if species_option == 'Carte des pannes' and modes == 'Les deux':
-            st.image('val1.jpg', width=1000)        
+            st.image('map_indisp.jpg', width=1000)        
+        if species_option == 'temps indisponible' and modes == 'Velo':
+            st.image('tps_b.jpg',width=1000)
+        if species_option == 'temps indisponible' and modes == 'Trotinette':
+            st.image('tps_t.jpg',width=1000)
+        if species_option == 'temps indisponible' and modes == 'Les deux':
+            st.image('tps_ind.jpg',width=1000)       
+
 
         
 
